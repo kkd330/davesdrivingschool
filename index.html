@@ -116,7 +116,7 @@
         .nav-menu {
             display: flex;
             list-style: none;
-            gap: 24px;
+            gap: 20px;
             align-items: center;
         }
 
@@ -132,10 +132,27 @@
             color: #d90429;
         }
 
+        .btn-text-now {
+            background-color: #25D366;
+            color: #ffffff !important;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-weight: 700 !important;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            transition: background 0.2s ease !important;
+        }
+
+        .btn-text-now:hover {
+            background-color: #1eb957 !important;
+        }
+
         .btn-nav {
             background-color: #d90429;
             color: #ffffff !important;
-            padding: 10px 20px;
+            padding: 8px 16px;
             border-radius: 6px;
             font-weight: 700 !important;
             transition: background 0.2s ease !important;
@@ -213,21 +230,24 @@
             transform: translateY(-2px);
         }
 
-        .btn-secondary {
-            background-color: transparent;
+        .btn-sms-hero {
+            background-color: #25D366;
             color: white;
-            border: 2px solid #8da9c4;
-            padding: 12px 28px;
+            padding: 14px 28px;
             border-radius: 6px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
             font-size: 1rem;
-            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
+            transition: transform 0.2s ease, background 0.2s ease;
         }
 
-        .btn-secondary:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-            border-color: white;
+        .btn-sms-hero:hover {
+            background-color: #1eb957;
+            transform: translateY(-2px);
         }
 
         /* Section Layouts */
@@ -256,7 +276,7 @@
             margin: 0 auto;
         }
 
-        /* Section 1: Features Grid */
+        /* Features Grid */
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -419,94 +439,67 @@
             background: #0b2545;
         }
 
-        /* Steps */
-        .process-steps {
+        /* Reviews Section */
+        .reviews-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-            position: relative;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
         }
 
-        .step-card {
-            background: white;
-            padding: 30px 20px;
+        .review-card {
+            background: #ffffff;
             border-radius: 10px;
-            text-align: center;
+            padding: 30px 25px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
             border: 1px solid #e9ecef;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
-        .step-number {
-            width: 45px;
-            height: 45px;
-            background: #d90429;
-            color: white;
-            font-weight: 800;
+        .review-stars {
+            color: #FFB800;
             font-size: 1.2rem;
+            margin-bottom: 12px;
+        }
+
+        .review-quote {
+            font-size: 0.95rem;
+            color: #4a5568;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .review-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-top: 1px solid #f1f5f9;
+            padding-top: 15px;
+        }
+
+        .author-avatar {
+            width: 42px;
+            height: 42px;
+            background: #0b2545;
+            color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 15px;
-        }
-
-        .step-card h3 {
-            font-size: 1.1rem;
-            color: #0b2545;
-            margin-bottom: 8px;
-        }
-
-        .step-card p {
-            font-size: 0.88rem;
-            color: #6c757d;
-        }
-
-        /* Resources */
-        .resources-container {
-            background: #ffffff;
-            border-radius: 12px;
-            padding: 35px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-            border: 1px solid #e9ecef;
-        }
-
-        .resources-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
-
-        .resource-box {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            border-left: 4px solid #d90429;
-        }
-
-        .resource-box h4 {
-            color: #0b2545;
-            font-size: 1.1rem;
-            margin-bottom: 8px;
-        }
-
-        .resource-box p {
-            font-size: 0.9rem;
-            color: #4a5568;
-            margin-bottom: 12px;
-        }
-
-        .resource-link {
-            color: #134074;
             font-weight: 700;
-            text-decoration: none;
-            font-size: 0.9rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
+            font-size: 1rem;
         }
 
-        .resource-link:hover {
-            color: #d90429;
-            text-decoration: underline;
+        .author-details h4 {
+            font-size: 0.95rem;
+            color: #0b2545;
+        }
+
+        .author-details span {
+            font-size: 0.8rem;
+            color: #6c757d;
         }
 
         /* Contact Section */
@@ -659,7 +652,7 @@
             .nav-menu {
                 flex-wrap: wrap;
                 justify-content: center;
-                gap: 15px;
+                gap: 12px;
             }
             .hero h1 {
                 font-size: 2rem;
@@ -681,7 +674,7 @@
         </div>
         <div class="top-bar-contact">
             <span>📞 Call: <a href="tel:4034045338">(403) 404-5338</a></span>
-            <span>💬 Text: <a href="sms:4037021797">(403) 702-1797</a></span>
+            <span>💬 Text: <a href="sms:14037021797?body=Hi%20Dave,%20I'm%20interested%20in%20Class%205%20driving%20lessons!">(403) 702-1797</a></span>
         </div>
     </div>
 
@@ -709,8 +702,8 @@
             <ul class="nav-menu">
                 <li><a href="#why-us">Why Choose Us</a></li>
                 <li><a href="#packages">Packages & Rates</a></li>
-                <li><a href="#how-it-works">How It Works</a></li>
-                <li><a href="#resources">Student Resources</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="sms:14037021797?body=Hi%20Dave,%20I'm%20interested%20in%20Class%205%20driving%20lessons!" class="btn-text-now">💬 Text Us Now</a></li>
                 <li><a href="#contact" class="btn-nav">Book Lesson</a></li>
             </ul>
         </div>
@@ -724,7 +717,7 @@
             <p>Patient, friendly, and family-focused driving lessons tailored for teen learners, new adult residents, and anxious drivers across Calgary, Chestermere, Langdon, and Strathmore.</p>
             <div class="hero-buttons">
                 <a href="#packages" class="btn-primary">Explore Packages</a>
-                <a href="#contact" class="btn-secondary">Book Free Consultation</a>
+                <a href="sms:14037021797?body=Hi%20Dave,%20I'm%20interested%20in%20Class%205%20driving%20lessons!" class="btn-sms-hero">💬 Instant Text Inquiry</a>
             </div>
         </div>
     </div>
@@ -833,75 +826,63 @@
         </div>
     </section>
 
-    <!-- Section 3: How It Works -->
-    <section id="how-it-works">
+    <!-- Section 3: What Our Students Say (Google Reviews) -->
+    <section id="reviews">
         <div class="section-header">
-            <h2>Simple 4-Step Path to Your License</h2>
-            <p>Getting your driver’s license with Dave’s Driving School is simple, stress-free, and organized.</p>
+            <h2>What Our Students Say</h2>
+            <p>Read real 5-star Google Reviews from students who passed their Class 5 road test with confidence.</p>
         </div>
 
-        <div class="process-steps">
-            <div class="step-card">
-                <div class="step-number">1</div>
-                <h3>Sign Up Online</h3>
-                <p>Fill out our short booking form or give us a quick call or text to choose your preferred package.</p>
-            </div>
-
-            <div class="step-card">
-                <div class="step-number">2</div>
-                <h3>Flexible Schedule</h3>
-                <p>We set up lesson times around your schedule with free door-to-door pickup included.</p>
-            </div>
-
-            <div class="step-card">
-                <div class="step-number">3</div>
-                <h3>In-Car Mastery</h3>
-                <p>Learn at your own pace with patient, step-by-step guidance covering all driving conditions.</p>
-            </div>
-
-            <div class="step-card">
-                <div class="step-number">4</div>
-                <h3>Pass & Save</h3>
-                <p>Pass your road test with ease and earn your insurance discount certificate!</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section 4: Student Resources -->
-    <section id="resources" style="background-color: #ffffff;">
-        <div class="section-header">
-            <h2>Student Resource Hub</h2>
-            <p>Official study materials, handbook downloads, and registry links to help you prepare for your Alberta Class 5 Knowledge & Road Tests.</p>
-        </div>
-
-        <div class="resources-container">
-            <div class="resources-grid">
-                <div class="resource-box">
-                    <h4>📘 Official Driver Handbooks</h4>
-                    <p>Download official Alberta government study guides for Class 5 basic driving and commercial licenses.</p>
-                    <a href="https://www.alberta.ca/driver-guides-and-handbooks" target="_blank" class="resource-link">Download Alberta Handbook PDF →</a>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-quote">"Dave is an incredible instructor! I was extremely nervous before my first lesson, but his calm approach helped me build confidence quickly. Passed my Class 5 road test on the first try!"</p>
                 </div>
-
-                <div class="resource-box">
-                    <h4>🏛️ Find a Local Registry</h4>
-                    <p>Locate approved Alberta registry offices near Calgary, Chestermere, and Strathmore to book your knowledge/road tests.</p>
-                    <a href="https://www.alberta.ca/find-registry-agent" target="_blank" class="resource-link">Locate Nearest Registry →</a>
+                <div class="review-author">
+                    <div class="author-avatar">A</div>
+                    <div class="author-details">
+                        <h4>Amanpreet K.</h4>
+                        <span>Google Review — NE Calgary</span>
+                    </div>
                 </div>
+            </div>
 
-                <div class="resource-box">
-                    <h4>📝 Practice Knowledge Tests</h4>
-                    <p>Prepare for your Class 7 learner's permit knowledge test with practice questions and traffic sign guides.</p>
-                    <a href="https://www.alberta.ca/get-a-class-7-learners-licence" target="_blank" class="resource-link">Class 7 Requirements Guide →</a>
+            <div class="review-card">
+                <div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-quote">"The insurance reduction course was totally worth it. Dave explained parallel parking and highway merging in a way that made complete sense. Highly recommend Dave's Driving School!"</p>
+                </div>
+                <div class="review-author">
+                    <div class="author-avatar">M</div>
+                    <div class="author-details">
+                        <h4>Marcus T.</h4>
+                        <span>Google Review — Chestermere</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="review-card">
+                <div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-quote">"Very patient and professional! Being able to learn with clear explanations in my native language made a huge difference. Free home pickup was super convenient."</p>
+                </div>
+                <div class="review-author">
+                    <div class="author-avatar">R</div>
+                    <div class="author-details">
+                        <h4>Rahul S.</h4>
+                        <span>Google Review — SE Calgary</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section 5: Contact & Registration Form -->
-    <section id="contact">
+    <!-- Section 4: Contact & Registration Form -->
+    <section id="contact" style="background-color: #ffffff;">
         <div class="section-header">
             <h2>Ready to Get Behind the Wheel?</h2>
-            <p>Contact us today to book your driving lessons or ask any questions.</p>
+            <p>Contact us today to book your driving lessons, request custom rates, or ask any questions.</p>
         </div>
 
         <div class="contact-wrapper">
@@ -920,8 +901,8 @@
                 </div>
 
                 <div class="contact-detail-item">
-                    <strong>💬 Phone (Message Only):</strong>
-                    <span><a href="sms:4037021797">(403) 702-1797</a></span>
+                    <strong>💬 Text Message Only (Instant Response):</strong>
+                    <span><a href="sms:14037021797?body=Hi%20Dave,%20I'm%20interested%20in%20Class%205%20driving%20lessons!" style="color: #25D366; font-weight: 700;">(403) 702-1797 — Tap to Text</a></span>
                 </div>
 
                 <div class="contact-detail-item">
@@ -985,7 +966,7 @@
                 <ul>
                     <li><a href="#why-us">Why Choose Us</a></li>
                     <li><a href="#packages">Packages & Rates</a></li>
-                    <li><a href="#resources">Alberta Handbooks</a></li>
+                    <li><a href="#reviews">Student Reviews</a></li>
                     <li><a href="#contact">Book Lessons</a></li>
                 </ul>
             </div>
