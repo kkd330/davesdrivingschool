@@ -1,993 +1,1230 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dave's Driving School | Building Safe Drivers for Life</title>
-    
-<!-- Favicon / Tab Icon -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dave's Driving School | Class 5 & Class 1 Driver Training</title>
+
+  <!-- Favicon Link -->
   <link rel="icon" type="image/png" href="favicon.png">
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-    
-    <style>
-        /* Global CSS Reset & Base Styling */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            font-family: 'Open Sans', sans-serif;
-            color: #2b2d42;
-            background-color: #f8f9fa;
-        }
-
-        h1, h2, h3, h4, .brand-name {
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        /* Top Bar Announcement */
-        .top-bar {
-            background-color: #0b2545;
-            color: #ffffff;
-            padding: 8px 5%;
-            font-size: 0.85rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .top-bar-info span {
-            margin-right: 18px;
-        }
-
-        .top-bar-contact a {
-            color: #ffffff;
-            text-decoration: none;
-            margin-left: 12px;
-        }
-
-        .top-bar-contact a:hover {
-            text-decoration: underline;
-        }
-
-        /* Main Navigation */
-        header {
-            background: #ffffff;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px 5%;
-            max-width: 1280px;
-            margin: 0 auto;
-        }
-
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-        }
-
-        .logo-graphic {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 48px;
-        }
-
-        .logo-svg {
-            height: 48px;
-            width: 120px;
-        }
-
-        .brand-text {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .brand-name {
-            font-size: 1.35rem;
-            font-weight: 800;
-            color: #0b2545;
-            letter-spacing: -0.5px;
-            line-height: 1.1;
-        }
-
-        .brand-tagline {
-            font-size: 0.72rem;
-            font-weight: 600;
-            color: #d90429;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 20px;
-            align-items: center;
-        }
-
-        .nav-menu a {
-            text-decoration: none;
-            color: #134074;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: color 0.2s ease;
-        }
-
-        .nav-menu a:hover {
-            color: #d90429;
-        }
-
-        .btn-text-now {
-            background-color: #25D366;
-            color: #ffffff !important;
-            padding: 8px 14px;
-            border-radius: 6px;
-            font-weight: 700 !important;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            text-decoration: none;
-            transition: background 0.2s ease !important;
-        }
-
-        .btn-text-now:hover {
-            background-color: #1eb957 !important;
-        }
-
-        .btn-nav {
-            background-color: #d90429;
-            color: #ffffff !important;
-            padding: 8px 16px;
-            border-radius: 6px;
-            font-weight: 700 !important;
-            transition: background 0.2s ease !important;
-        }
-
-        .btn-nav:hover {
-            background-color: #b10321 !important;
-        }
-
-        /* Hero Banner */
-        .hero {
-            background: linear-gradient(135deg, #0b2545 0%, #134074 100%);
-            color: white;
-            padding: 80px 5% 90px;
-            text-align: center;
-            position: relative;
-        }
-
-        .hero-content {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .hero-badge {
-            display: inline-block;
-            background: rgba(217, 4, 41, 0.2);
-            border: 1px solid #d90429;
-            color: #ff8fa3;
-            padding: 6px 16px;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .hero h1 {
-            font-size: 2.8rem;
-            font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 20px;
-        }
-
-        .hero p {
-            font-size: 1.15rem;
-            opacity: 0.9;
-            max-width: 720px;
-            margin: 0 auto 30px;
-            line-height: 1.6;
-        }
-
-        .hero-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .btn-primary {
-            background-color: #d90429;
-            color: white;
-            padding: 14px 32px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1rem;
-            display: inline-block;
-            box-shadow: 0 4px 14px rgba(217, 4, 41, 0.4);
-            transition: transform 0.2s ease, background 0.2s ease;
-        }
-
-        .btn-primary:hover {
-            background-color: #b10321;
-            transform: translateY(-2px);
-        }
-
-        .btn-sms-hero {
-            background-color: #25D366;
-            color: white;
-            padding: 14px 28px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
-            transition: transform 0.2s ease, background 0.2s ease;
-        }
-
-        .btn-sms-hero:hover {
-            background-color: #1eb957;
-            transform: translateY(-2px);
-        }
-
-        /* Section Layouts */
-        section {
-            padding: 70px 5%;
-            max-width: 1280px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .section-header h2 {
-            font-size: 2.1rem;
-            color: #0b2545;
-            margin-bottom: 12px;
-            font-weight: 800;
-        }
-
-        .section-header p {
-            color: #6c757d;
-            font-size: 1.05rem;
-            max-width: 650px;
-            margin: 0 auto;
-        }
-
-        /* Features Grid */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
-
-        .feature-card {
-            background: #ffffff;
-            border-radius: 10px;
-            padding: 30px 25px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-            border: 1px solid #e9ecef;
-            transition: transform 0.2s ease;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            border-color: #8da9c4;
-        }
-
-        .feature-icon {
-            font-size: 2.2rem;
-            margin-bottom: 15px;
-            display: inline-block;
-            background: #eef4f8;
-            padding: 12px;
-            border-radius: 8px;
-            color: #0b2545;
-        }
-
-        .feature-card h3 {
-            font-size: 1.25rem;
-            color: #0b2545;
-            margin-bottom: 10px;
-        }
-
-        .feature-card p {
-            color: #495057;
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-
-        /* Banner */
-        .nervous-banner {
-            background: linear-gradient(135deg, #eef4f8 0%, #d8e2dc 100%);
-            border-left: 6px solid #134074;
-            border-radius: 10px;
-            padding: 35px 30px;
-            margin-top: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-
-        .nervous-text h3 {
-            font-size: 1.5rem;
-            color: #0b2545;
-            margin-bottom: 8px;
-        }
-
-        .nervous-text p {
-            color: #333;
-            font-size: 1rem;
-            max-width: 750px;
-        }
-
-        /* Packages */
-        .packages-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-        }
-
-        .package-card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 5px 25px rgba(0,0,0,0.06);
-            border: 1px solid #e2e8f0;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-        }
-
-        .package-card.featured {
-            border: 2px solid #d90429;
-        }
-
-        .badge-popular {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: #d90429;
-            color: white;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-        }
-
-        .package-header {
-            background: #0b2545;
-            color: white;
-            padding: 25px;
-        }
-
-        .package-header h3 {
-            font-size: 1.4rem;
-            margin-bottom: 6px;
-        }
-
-        .package-subtitle {
-            font-size: 0.88rem;
-            opacity: 0.8;
-        }
-
-        .package-body {
-            padding: 25px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .package-features {
-            list-style: none;
-            margin-bottom: 25px;
-            flex-grow: 1;
-        }
-
-        .package-features li {
-            margin-bottom: 12px;
-            font-size: 0.95rem;
-            color: #4a5568;
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-        }
-
-        .package-features li::before {
-            content: "✓";
-            color: #d90429;
-            font-weight: bold;
-        }
-
-        .btn-card {
-            background: #134074;
-            color: white;
-            text-align: center;
-            padding: 12px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: background 0.2s ease;
-        }
-
-        .btn-card:hover {
-            background: #0b2545;
-        }
-
-        /* Reviews Section */
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-        }
-
-        .review-card {
-            background: #ffffff;
-            border-radius: 10px;
-            padding: 30px 25px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-            border: 1px solid #e9ecef;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .review-stars {
-            color: #FFB800;
-            font-size: 1.2rem;
-            margin-bottom: 12px;
-        }
-
-        .review-quote {
-            font-size: 0.95rem;
-            color: #4a5568;
-            line-height: 1.6;
-            margin-bottom: 20px;
-            font-style: italic;
-        }
-
-        .review-author {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            border-top: 1px solid #f1f5f9;
-            padding-top: 15px;
-        }
-
-        .author-avatar {
-            width: 42px;
-            height: 42px;
-            background: #0b2545;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 1rem;
-        }
-
-        .author-details h4 {
-            font-size: 0.95rem;
-            color: #0b2545;
-        }
-
-        .author-details span {
-            font-size: 0.8rem;
-            color: #6c757d;
-        }
-
-        /* Contact Section */
-        .contact-wrapper {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
-            background: white;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 25px rgba(0,0,0,0.06);
-        }
-
-        .contact-info h3 {
-            color: #0b2545;
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-        }
-
-        .contact-info p {
-            color: #4a5568;
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
-
-        .contact-detail-item {
-            margin-bottom: 15px;
-        }
-
-        .contact-detail-item strong {
-            display: block;
-            color: #0b2545;
-            font-size: 0.95rem;
-        }
-
-        .contact-detail-item span, .contact-detail-item a {
-            color: #4a5568;
-            font-size: 0.95rem;
-            text-decoration: none;
-        }
-
-        .contact-detail-item a:hover {
-            color: #d90429;
-            text-decoration: underline;
-        }
-
-        .booking-form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .form-group input, .form-group select, .form-group textarea {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #cbd5e0;
-            border-radius: 6px;
-            font-size: 0.95rem;
-            outline: none;
-            font-family: inherit;
-        }
-
-        .form-group input:focus, .form-group select:focus {
-            border-color: #134074;
-        }
-
-        .btn-submit {
-            background: #d90429;
-            color: white;
-            padding: 14px;
-            border: none;
-            border-radius: 6px;
-            font-weight: 700;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-
-        .btn-submit:hover {
-            background: #b10321;
-        }
-
-        /* Footer */
-        footer {
-            background: #0b2545;
-            color: white;
-            padding: 40px 5% 20px;
-            margin-top: 60px;
-        }
-
-        .footer-content {
-            max-width: 1280px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 30px;
-            padding-bottom: 30px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .footer-brand h4 {
-            font-size: 1.3rem;
-            margin-bottom: 8px;
-        }
-
-        .footer-brand p {
-            font-size: 0.88rem;
-            opacity: 0.7;
-            max-width: 320px;
-        }
-
-        .footer-links h5 {
-            font-size: 1rem;
-            margin-bottom: 12px;
-            color: #8da9c4;
-        }
-
-        .footer-links ul {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 8px;
-        }
-
-        .footer-links a {
-            color: #edf2f4;
-            text-decoration: none;
-            font-size: 0.88rem;
-        }
-
-        .footer-links a:hover {
-            color: #d90429;
-        }
-
-        .footer-bottom {
-            max-width: 1280px;
-            margin: 20px auto 0;
-            text-align: center;
-            font-size: 0.8rem;
-            opacity: 0.6;
-        }
-
-        @media (max-width: 768px) {
-            .nav-container {
-                flex-direction: column;
-                gap: 15px;
-            }
-            .nav-menu {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 12px;
-            }
-            .hero h1 {
-                font-size: 2rem;
-            }
-            .nervous-banner {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-    </style>
+
+  <!-- Google Fonts & FontAwesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;0,700;0,800;0,900;1,700&family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --primary-red: #A81B2B;
+      --primary-red-hover: #8A1321;
+      --primary-blue: #0E3B68;
+      --primary-blue-hover: #092849;
+      --accent-silver: #E2E8F0;
+      --silver-gradient: linear-gradient(135deg, #F8FAFC 0%, #E2E8F0 50%, #CBD5E1 100%);
+      --dark-slate: #0F172A;
+      --text-muted: #475569;
+      --light-gray: #F8FAFC;
+      --card-bg: #FFFFFF;
+      --border-color: #E2E8F0;
+      --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 10px 25px -5px rgba(14, 59, 104, 0.08);
+      --shadow-lg: 0 20px 35px -10px rgba(14, 59, 104, 0.15);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      color: var(--dark-slate);
+      background-color: var(--light-gray);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* TYPOGRAPHY UTILITIES */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      color: var(--primary-blue);
+      letter-spacing: -0.02em;
+    }
+
+    p {
+      color: var(--text-muted);
+    }
+
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .section-padding {
+      padding: 5rem 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .section-header .badge {
+      margin-bottom: 0.75rem;
+    }
+
+    .section-header h2 {
+      font-size: 2.25rem;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-header p {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.05rem;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.35rem 0.9rem;
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .badge-red {
+      background-color: rgba(168, 27, 43, 0.1);
+      color: var(--primary-red);
+      border: 1px solid rgba(168, 27, 43, 0.25);
+    }
+
+    .badge-blue {
+      background-color: rgba(14, 59, 104, 0.1);
+      color: var(--primary-blue);
+      border: 1px solid rgba(14, 59, 104, 0.25);
+    }
+
+    /* BUTTONS */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.75rem;
+      border-radius: 10px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-red {
+      background-color: var(--primary-red);
+      color: #FFFFFF;
+      box-shadow: 0 4px 14px rgba(168, 27, 43, 0.3);
+    }
+
+    .btn-red:hover {
+      background-color: var(--primary-red-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(168, 27, 43, 0.4);
+    }
+
+    .btn-blue {
+      background-color: var(--primary-blue);
+      color: #FFFFFF;
+      box-shadow: 0 4px 14px rgba(14, 59, 104, 0.25);
+    }
+
+    .btn-blue:hover {
+      background-color: var(--primary-blue-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(14, 59, 104, 0.35);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--primary-blue);
+      border: 2px solid var(--primary-blue);
+    }
+
+    .btn-outline:hover {
+      background: var(--primary-blue);
+      color: #FFFFFF;
+    }
+
+    header {
+      background: #FFFFFF;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      border-bottom: 2px solid var(--accent-silver);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 80px;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+
+    .logo-badge {
+      width: 46px;
+      height: 46px;
+      background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-red) 100%);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.25rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 1.2rem;
+      color: var(--primary-blue);
+      line-height: 1.1;
+      letter-spacing: -0.5px;
+    }
+
+    .brand-tagline {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--primary-red);
+      letter-spacing: 0.02em;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: var(--dark-slate);
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: color 0.2s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--primary-red);
+    }
+
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--primary-blue);
+      cursor: pointer;
+    }
+
+    .hero {
+      position: relative;
+      background: linear-gradient(135deg, #0A2647 0%, #0E3B68 50%, #1A4D80 100%);
+      color: white;
+      padding: 5.5rem 0 6rem 0;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(168, 27, 43, 0.25) 0%, rgba(0,0,0,0) 70%);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+
+    .hero-content h1 {
+      color: #FFFFFF;
+      font-size: 3rem;
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-content h1 span {
+      color: #F87171;
+    }
+
+    .hero-content p {
+      color: #E2E8F0;
+      font-size: 1.15rem;
+      margin-bottom: 2rem;
+      max-width: 620px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+
+    .location-banner {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+    }
+
+    .location-title {
+      font-size: 0.825rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #CBD5E1;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .location-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .loc-tag {
+      background: rgba(255, 255, 255, 0.15);
+      color: #FFFFFF;
+      padding: 0.25rem 0.65rem;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .hero-card {
+      background: #FFFFFF;
+      border-radius: 20px;
+      padding: 2.25rem;
+      box-shadow: var(--shadow-lg);
+      color: var(--dark-slate);
+      border: 3px solid var(--accent-silver);
+    }
+
+    .hero-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+
+    .hero-card p {
+      font-size: 0.9rem;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+      color: var(--dark-slate);
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1.5px solid var(--border-color);
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      transition: border-color 0.2s ease;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--primary-blue);
+    }
+
+    .why-us-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.75rem;
+    }
+
+    .why-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 2.25rem 2rem;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .why-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--primary-blue);
+    }
+
+    .card-icon-wrap {
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(135deg, rgba(14, 59, 104, 0.08) 0%, rgba(168, 27, 43, 0.08) 100%);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+      color: var(--primary-blue);
+      font-size: 1.5rem;
+    }
+
+    .why-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .why-card p {
+      font-size: 0.95rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .pill-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: auto;
+    }
+
+    .pill-item {
+      background: var(--light-gray);
+      color: var(--primary-blue);
+      border: 1px solid var(--border-color);
+      padding: 0.3rem 0.75rem;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .pill-item.highlight {
+      background: rgba(168, 27, 43, 0.06);
+      color: var(--primary-red);
+      border-color: rgba(168, 27, 43, 0.2);
+    }
+
+    .packages-section {
+      background-color: #FFFFFF;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .packages-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.75rem;
+    }
+
+    .pkg-card {
+      background: var(--card-bg);
+      border: 2px solid var(--border-color);
+      border-radius: 16px;
+      padding: 2.25rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .pkg-card:hover {
+      border-color: var(--primary-blue);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .pkg-card.featured {
+      border-color: var(--primary-red);
+      box-shadow: var(--shadow-md);
+    }
+
+    .pkg-card.commercial {
+      border-color: var(--primary-blue);
+      background: linear-gradient(180deg, #FFFFFF 0%, #F0F4F9 100%);
+    }
+
+    .pkg-badge {
+      position: absolute;
+      top: -14px;
+      right: 20px;
+      background: var(--primary-red);
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 0.25rem 0.85rem;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .pkg-badge.blue {
+      background: var(--primary-blue);
+    }
+
+    .pkg-subtitle {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--primary-red);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.35rem;
+    }
+
+    .pkg-title {
+      font-size: 1.35rem;
+      margin-bottom: 0.75rem;
+      line-height: 1.25;
+    }
+
+    .pkg-desc {
+      font-size: 0.9rem;
+      margin-bottom: 1.25rem;
+      min-height: 50px;
+    }
+
+    .pkg-feature-list {
+      list-style: none;
+      margin-bottom: 1.75rem;
+    }
+
+    .pkg-feature-list li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.75rem;
+      font-size: 0.875rem;
+      color: var(--dark-slate);
+    }
+
+    .pkg-feature-list li::before {
+      content: '\f00c';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      position: absolute;
+      left: 0;
+      color: var(--primary-red);
+      font-size: 0.85rem;
+    }
+
+    .pkg-card.commercial .pkg-feature-list li::before {
+      color: var(--primary-blue);
+    }
+
+    .pkg-action {
+      margin-top: auto;
+    }
+
+    .resources-section {
+      background-color: #FFFFFF;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .resources-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .resource-box {
+      background: var(--light-gray);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 2rem;
+    }
+
+    .resource-box h3 {
+      font-size: 1.2rem;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .resource-box h3 i {
+      color: var(--primary-blue);
+    }
+
+    .link-list {
+      list-style: none;
+    }
+
+    .link-list li {
+      margin-bottom: 1rem;
+      padding-bottom: 0.85rem;
+      border-bottom: 1px dashed var(--border-color);
+    }
+
+    .link-list li:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .link-list a {
+      color: var(--dark-slate);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.2s ease;
+    }
+
+    .link-list a:hover {
+      color: var(--primary-red);
+    }
+
+    .link-list .desc {
+      display: block;
+      font-size: 0.825rem;
+      color: var(--text-muted);
+      font-weight: 400;
+      margin-top: 0.25rem;
+    }
+
+    /* CONTACT SECTION */
+    .contact-card {
+      background: var(--card-bg);
+      border-radius: 20px;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .contact-info {
+      background: linear-gradient(135deg, var(--primary-blue) 0%, #082848 100%);
+      color: white;
+      padding: 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .contact-info h3 {
+      color: white;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .contact-info p {
+      color: #E2E8F0;
+      margin-bottom: 2rem;
+    }
+
+    .info-list {
+      list-style: none;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      font-size: 1.05rem;
+    }
+
+    .info-item i {
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #F87171;
+    }
+
+    .contact-form-wrap {
+      padding: 3rem;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--dark-slate);
+      color: #94A3B8;
+      padding: 3.5rem 0 2rem 0;
+      font-size: 0.9rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-brand .brand-name {
+      color: white;
+    }
+
+    .footer-brand p {
+      color: #94A3B8;
+      margin-top: 0.75rem;
+      font-size: 0.875rem;
+    }
+
+    .footer-title {
+      color: white;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-links a {
+      color: #94A3B8;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 2rem;
+      text-align: center;
+      font-size: 0.825rem;
+    }
+
+    /* RESPONSIVE DESIGN */
+    @media (max-width: 992px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+      .contact-card {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hamburger {
+        display: block;
+      }
+      .nav-menu {
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        background: white;
+        flex-direction: column;
+        padding: 1.5rem;
+        box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        display: none;
+        border-bottom: 2px solid var(--accent-silver);
+      }
+      .nav-menu.active {
+        display: flex;
+      }
+      .hero-content h1 {
+        font-size: 2.25rem;
+      }
+      .section-padding {
+        padding: 3.5rem 0;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Top Info Bar -->
-    <div class="top-bar">
-        <div class="top-bar-info">
-            <span>📍 Serving NE/SE Calgary, Chestermere, Langdon & Strathmore</span>
-            <span>🗣️ English, Hindi, Punjabi & Urdu</span>
+  <header>
+    <div class="container nav-container">
+      <a href="#" class="brand-logo">
+        <div class="logo-badge">
+          <i class="fa-solid fa-car-side"></i>
         </div>
-        <div class="top-bar-contact">
-            <span>📞 Call: <a href="tel:4034045338">(403) 404-5338</a></span>
-            <span>💬 Text: <a href="sms:14037021797?body=Hi%20Dave,%20I'm%20interested%20in%20Class%205%20driving%20lessons!">(403) 702-1797</a></span>
+        <div class="brand-text">
+          <span class="brand-name">DAVE'S DRIVING SCHOOL</span>
+          <span class="brand-tagline">Building safe drivers for life</span>
         </div>
+      </a>
+
+      <button class="hamburger" id="mobile-menu-btn" aria-label="Toggle Navigation">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#why-us" class="nav-link">Why Us</a></li>
+        <li><a href="#packages" class="nav-link">Packages</a></li>
+        <li><a href="#resources" class="nav-link">Resources</a></li>
+        <li><a href="#contact" class="btn btn-red">Book Now</a></li>
+      </ul>
     </div>
+  </header>
 
-    <!-- Header Navigation -->
-    <header>
-        <div class="nav-container">
-            <a href="#home" class="logo-container">
-                <div class="logo-graphic">
-                    <svg class="logo-svg" viewBox="0 0 240 80" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Left Wing (Red) -->
-                        <path d="M 80 40 C 65 20, 30 20, 10 32 C 30 38, 45 45, 55 58 C 40 50, 20 48, 15 54 C 30 60, 48 62, 65 52 Z" fill="#D90429"/>
-                        <!-- Central Rim Shield -->
-                        <circle cx="120" cy="40" r="22" fill="#0B2545" stroke="#8DA9C4" stroke-width="3"/>
-                        <circle cx="120" cy="40" r="14" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-dasharray="4,2"/>
-                        <circle cx="120" cy="40" r="5" fill="#D90429"/>
-                        <!-- Right Wing (Blue) -->
-                        <path d="M 160 40 C 175 20, 210 20, 230 32 C 210 38, 195 45, 185 58 C 200 50, 220 48, 225 54 C 210 60, 192 62, 175 52 Z" fill="#134074"/>
-                    </svg>
-                </div>
-                <div class="brand-text">
-                    <span class="brand-name">DAVE'S</span>
-                    <span class="brand-tagline">DRIVING SCHOOL</span>
-                </div>
-            </a>
-            <ul class="nav-menu">
-                <li><a href="#why-us">Why Choose Us</a></li>
-                <li><a href="#packages">Packages & Rates</a></li>
-                <li><a href="#reviews">Reviews</a></li>
-                <li><a href="sms:14037021797?body=Hi%20Dave,%20I'm%20interested%20in%20Class%205%20driving%20lessons!" class="btn-text-now">💬 Text Us Now</a></li>
-                <li><a href="#contact" class="btn-nav">Book Lesson</a></li>
-            </ul>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <div class="hero" id="home">
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-grid">
+        
         <div class="hero-content">
-            <span class="hero-badge">Alberta Certified Driving Instruction</span>
-            <h1>Building Safe, Confident Drivers for Life</h1>
-            <p>Patient, friendly, and family-focused driving lessons tailored for teen learners, new adult residents, and anxious drivers across Calgary, Chestermere, Langdon, and Strathmore.</p>
-            <div class="hero-buttons">
-                <a href="#packages" class="btn-primary">Explore Packages</a>
-                <a href="sms:14037021797?body=Hi%20Dave,%20I'm%20interested%20in%20Class%205%20driving%20lessons!" class="btn-sms-hero">💬 Instant Text Inquiry</a>
+          <span class="badge badge-red" style="background: rgba(239,68,68,0.2); color: #FCA5A5; border-color: rgba(239,68,68,0.4); margin-bottom: 1rem;">
+            Calgary & Surrounding Area Training
+          </span>
+          <h1>Master the Road with <span>Confidence & Ease</span></h1>
+          <p>Patient, professional driver education designed to build lifelong safety habits. Whether taking your first Class 5 test or pursuing a Class 1 commercial driving career, Dave's Driving School is here for your success.</p>
+          
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-red"><i class="fa-solid fa-calendar-check"></i> Book Your First Lesson Today</a>
+            <a href="#packages" class="btn btn-outline" style="color: white; border-color: rgba(255,255,255,0.4);"><i class="fa-solid fa-layer-group"></i> View All Programs</a>
+          </div>
+
+          <div class="location-banner">
+            <div class="location-title">
+              <i class="fa-solid fa-location-dot" style="color: #F87171;"></i> Primary Service Coverage Areas:
             </div>
+            <div class="location-tags">
+              <span class="loc-tag">NE Calgary</span>
+              <span class="loc-tag">SE Calgary</span>
+              <span class="loc-tag">Chestermere</span>
+              <span class="loc-tag">Langdon</span>
+              <span class="loc-tag">Strathmore</span>
+            </div>
+          </div>
         </div>
+
+        <div class="hero-card">
+          <h3>Quick Registration</h3>
+          <p>Get in touch with an instructor to reserve your preferred schedule slot.</p>
+          <form id="hero-intake-form" onsubmit="event.preventDefault(); alert('Thank you for your request! Dave will contact you shortly.');">
+            <div class="form-group">
+              <label for="hero-name">Full Name</label>
+              <input type="text" id="hero-name" class="form-control" placeholder="e.g. Sarah Jenkins" required>
+            </div>
+            <div class="form-group">
+              <label for="hero-phone">Phone Number</label>
+              <input type="tel" id="hero-phone" class="form-control" placeholder="(403) 555-0199" required>
+            </div>
+            <div class="form-group">
+              <label for="hero-course">License Class / Program</label>
+              <select id="hero-course" class="form-control" required>
+                <option value="">Select a Program</option>
+                <option value="class5">Class 5 Insurance Reduction Course</option>
+                <option value="class1">Class 1 Commercial Training</option>
+                <option value="winter">Winter Driving Prep</option>
+                <option value="brushup">Road Test Brush-Up & Rental</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-blue" style="width: 100%; margin-top: 0.5rem;">Request Callback</button>
+          </form>
+        </div>
+
+      </div>
     </div>
+  </section>
 
-    <!-- Section 1: Why Choose Us -->
-    <section id="why-us">
-        <div class="section-header">
-            <h2>Why Learn with Dave's Driving School?</h2>
-            <p>We combine modern defensive driving techniques with a patient, welcoming environment tailored to your comfort level.</p>
+  <section class="section-padding" id="why-us">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge badge-red">The Dave's Difference</span>
+        <h2>Why Drivers Choose Us</h2>
+        <p>We blend modern safety protocols with a calm, supportive approach to ensure drivers of all skill levels excel on Alberta roadways.</p>
+      </div>
+
+      <div class="why-us-grid">
+        
+        <div class="why-card">
+          <div class="card-icon-wrap">
+            <i class="fa-solid fa-heart-pulse"></i>
+          </div>
+          <h3>"Don't Be Nervous!"</h3>
+          <p>Driving anxiety is completely natural. Our patient instruction method helps clear away stress through step-by-step guidance in safe, dual-controlled vehicles.</p>
+          <div class="pill-container">
+            <span class="pill-item highlight">Anxiety-Free Pace</span>
+            <span class="pill-item">Calm Instructors</span>
+          </div>
         </div>
 
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">🏠</div>
-                <h3>Family-Owned Care</h3>
-                <p>We treat every student like family. Enjoy personal attention, direct communication with your instructor, and zero corporate rush.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">🚗</div>
-                <h3>Door-to-Door Pickup</h3>
-                <p>Home, school, or workplace pickup and drop-off included across NE & SE Calgary, Chestermere, Langdon, and Strathmore.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">🗣️</div>
-                <h3>Multilingual Instruction</h3>
-                <p>Learn comfortably in your preferred language. Lessons are available in **English, Hindi, Punjabi, and Urdu**.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">📅</div>
-                <h3>Flexible Scheduling</h3>
-                <p>Morning, evening, and weekend slots built around your school or work schedule. We make learning convenient.</p>
-            </div>
+        <div class="why-card">
+          <div class="card-icon-wrap">
+            <i class="fa-solid fa-language"></i>
+          </div>
+          <h3>Multilingual Instruction</h3>
+          <p>Clear communication is crucial to learning safety rules. We provide fluent instruction in English, Hindi, Punjabi, and Urdu for complete confidence.</p>
+          <div class="pill-container">
+            <span class="pill-item highlight">English</span>
+            <span class="pill-item highlight">Hindi</span>
+            <span class="pill-item highlight">Punjabi</span>
+            <span class="pill-item highlight">Urdu</span>
+          </div>
         </div>
 
-        <div class="nervous-banner">
-            <div class="nervous-text">
-                <h3>Nervous About Getting Behind the Wheel?</h3>
-                <p><strong>Don't be nervous when you learn with Dave!</strong> We specialize in helping anxious and first-time drivers overcome fear, gain total car control, and build genuine road confidence step-by-step.</p>
-            </div>
-            <a href="#contact" class="btn-primary" style="white-space: nowrap;">Start Comfortably</a>
-        </div>
-    </section>
-
-    <!-- Section 2: Packages & Rates -->
-    <section id="packages" style="background-color: #ffffff;">
-        <div class="section-header">
-            <h2>Instruction Packages & Rates</h2>
-            <p>Transparent pricing with certified instruction designed to save you money on auto insurance and keep you safe year-round.</p>
+        <div class="why-card">
+          <div class="card-icon-wrap">
+            <i class="fa-solid fa-house-chimney-user"></i>
+          </div>
+          <h3>Door-to-Door Pickup</h3>
+          <p>Convenient home, work, or school pickup across North East & South East Calgary, Chestermere, Langdon, and Strathmore.</p>
+          <div class="pill-container">
+            <span class="pill-item">NE / SE Calgary</span>
+            <span class="pill-item">Chestermere</span>
+            <span class="pill-item">Langdon</span>
+            <span class="pill-item">Strathmore</span>
+          </div>
         </div>
 
-        <div class="packages-grid">
-            <div class="package-card featured">
-                <span class="badge-popular">Most Popular</span>
-                <div class="package-header">
-                    <h3>Insurance Reduction Course</h3>
-                    <p class="package-subtitle">Full Alberta Government Approved Certificate</p>
-                </div>
-                <div class="package-body">
-                    <ul class="package-features">
-                        <li><strong>10 Hours</strong> of 1-on-1 In-Car Practical Training</li>
-                        <li><strong>15 Hours</strong> of Online Classroom Theory</li>
-                        <li>Official Alberta Insurance Reduction Certificate</li>
-                        <li>Free Home Pickup & Drop-off</li>
-                        <li>City Driving, Parallel Parking & Highway Merging</li>
-                    </ul>
-                    <a href="#contact" class="btn-card">Enrol Now</a>
-                </div>
-            </div>
-
-            <div class="package-card">
-                <div class="package-header" style="background: #134074;">
-                    <h3>Winter Driving & Skid Prep</h3>
-                    <p class="package-subtitle">Flexible 2 to 10 Hour Customized Sessions</p>
-                </div>
-                <div class="package-body">
-                    <ul class="package-features">
-                        <li><strong>2 to 10 Hours</strong> flexible options tailored to you</li>
-                        <li>Icy road braking & skid control techniques</li>
-                        <li>Handling heavy snow, black ice & low visibility</li>
-                        <li>Winter emergency kits & vehicle prep guidance</li>
-                        <li>Ideal for new Canadian winters or refresher training</li>
-                    </ul>
-                    <a href="#contact" class="btn-card">Book Winter Session</a>
-                </div>
-            </div>
-
-            <div class="package-card">
-                <div class="package-header" style="background: #0b2545;">
-                    <h3>Hourly Lessons & Road Test Prep</h3>
-                    <p class="package-subtitle">Targeted Practice & Mock Exams</p>
-                </div>
-                <div class="package-body">
-                    <ul class="package-features">
-                        <li>Customizable hourly lessons (min. 2 hours)</li>
-                        <li>Pre-Road Test evaluation & practice runs</li>
-                        <li>Use of instructor vehicle for Class 5 road test</li>
-                        <li>Targeted help with parking, backing up & highway speed</li>
-                        <li>Perfect for brush-up sessions before your test</li>
-                    </ul>
-                    <a href="#contact" class="btn-card">Book Brush-Up</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section 3: What Our Students Say (Google Reviews) -->
-    <section id="reviews">
-        <div class="section-header">
-            <h2>What Our Students Say</h2>
-            <p>Read real 5-star Google Reviews from students who passed their Class 5 road test with confidence.</p>
+        <div class="why-card">
+          <div class="card-icon-wrap">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <h3>High Test Pass Rate</h3>
+          <p>Our focus on real-world practical skills, defensive maneuvering, and mock road test evaluation helps students pass on their first try.</p>
+          <div class="pill-container">
+            <span class="pill-item highlight">Mock Test Review</span>
+            <span class="pill-item">Defensive Driving</span>
+          </div>
         </div>
 
-        <div class="reviews-grid">
-            <div class="review-card">
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding packages-section" id="packages">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge badge-blue">Training Programs</span>
+        <h2>Driver Education Packages</h2>
+        <p>Comprehensive training courses designed for beginner drivers, seasonal skill upgrades, and commercial licensing careers.</p>
+      </div>
+
+      <div class="packages-grid">
+
+        <!-- Package 1: Class 5 Insurance Reduction -->
+        <div class="pkg-card featured">
+          <span class="pkg-badge">Most Popular</span>
+          <div class="pkg-subtitle">Class 5 License</div>
+          <h3 class="pkg-title">Insurance Reduction Course</h3>
+          <p class="pkg-desc">Official driver education program approved for Alberta auto insurance discount qualifications.</p>
+          <ul class="pkg-feature-list">
+            <li>In-car practical driving lessons with certified instructor</li>
+            <li>Comprehensive online interactive theory module</li>
+            <li>Qualifies graduates for insurance premium reductions</li>
+            <li>Free door-to-door pickup & drop-off included</li>
+            <li>Available in English, Hindi, Punjabi, and Urdu</li>
+          </ul>
+          <div class="pkg-action">
+            <a href="#contact" class="btn btn-red" style="width: 100%;">Book Insurance Program</a>
+          </div>
+        </div>
+
+        <!-- Package 2: Class 1 Commercial Training (Alberta Transportation Compliant Wording) -->
+        <div class="pkg-card commercial">
+          <span class="pkg-badge blue">Commercial Licensing</span>
+          <div class="pkg-subtitle">Class 1 License</div>
+          <h3 class="pkg-title">Class 1 Commercial Driver Training</h3>
+          <p class="pkg-desc">Approved commercial driver training preparing candidates to meet Alberta Transportation & Economic Corridors standards for commercial licensing and career readiness.</p>
+          <ul class="pkg-feature-list">
+            <li>Comprehensive commercial vehicle operation & safety training</li>
+            <li>Professional in-cab practical driving & highway navigation</li>
+            <li>In-yard vehicle inspection protocols & coupling procedures</li>
+            <li>Air Brake (Q-Endorsement) theory & practical component preparation</li>
+            <li>Designed for entry-level commercial trucking career readiness</li>
+          </ul>
+          <div class="pkg-action">
+            <a href="#contact" class="btn btn-blue" style="width: 100%;">Enquire Commercial Class 1</a>
+          </div>
+        </div>
+
+        <!-- Package 3: Winter Driving Prep -->
+        <div class="pkg-card">
+          <div class="pkg-subtitle">Seasonal Safety</div>
+          <h3 class="pkg-title">Winter Driving Prep</h3>
+          <p class="pkg-desc">Specialized winter skill instruction offered on a flexible 2 to 10-hour scale to build confidence in icy conditions.</p>
+          <ul class="pkg-feature-list">
+            <li>Flexible 2 to 10-hour customized training scale</li>
+            <li>Skid recovery & emergency anti-lock braking techniques</li>
+            <li>Navigating black ice, snowbanks & low-visibility conditions</li>
+            <li>Winter vehicle preparation & emergency kit review</li>
+            <li>Ideal for new drivers and Alberta newcomers</li>
+          </ul>
+          <div class="pkg-action">
+            <a href="#contact" class="btn btn-blue" style="width: 100%;">Book Winter Prep</a>
+          </div>
+        </div>
+
+        <!-- Package 4: Road Test Brush-Up -->
+        <div class="pkg-card">
+          <div class="pkg-subtitle">Exam Prep</div>
+          <h3 class="pkg-title">Road Test Brush-Up & Rental</h3>
+          <p class="pkg-desc">Warm up before your exam and utilize our dual-control vehicle for your official Alberta road test.</p>
+          <ul class="pkg-feature-list">
+            <li>Pre-test evaluation & critical error brush-up session</li>
+            <li>Use of Dave's Driving School vehicle for official road test</li>
+            <li>Parallel parking, hill parking, and highway merging review</li>
+            <li>Pickup & transport to your local registry office</li>
+            <li>Calm, encouraging support right before your test</li>
+          </ul>
+          <div class="pkg-action">
+            <a href="#contact" class="btn btn-blue" style="width: 100%;">Book Test Prep</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding resources-section" id="resources">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge badge-blue">Student Hub</span>
+        <h2>Alberta Driver Resources</h2>
+        <p>Official study manuals, commercial driver guides, and local registry search services for Alberta learners.</p>
+      </div>
+
+      <div class="resources-grid">
+        
+        <div class="resource-box">
+          <h3><i class="fa-solid fa-book-bookmark"></i> Official Alberta Handbooks</h3>
+          <ul class="link-list">
+            <li>
+              <a href="https://www.alberta.ca/driver-guides-overview.aspx" target="_blank" rel="noopener">
+                <i class="fa-solid fa-file-pdf" style="color: #EF4444;"></i> Alberta Driver's Guide (Class 5 Knowledge)
+              </a>
+              <span class="desc">Official handbook for Class 5 learner's permit study.</span>
+            </li>
+            <li>
+              <a href="https://www.alberta.ca/commercial-drivers-guide.aspx" target="_blank" rel="noopener">
+                <i class="fa-solid fa-truck" style="color: #0E3B68;"></i> Alberta Commercial Driver's Guide
+              </a>
+              <span class="desc">Essential study guide for Class 1 and Class 3 commercial licensing.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="resource-box">
+          <h3><i class="fa-solid fa-building-columns"></i> Registry Services</h3>
+          <ul class="link-list">
+            <li>
+              <a href="https://www.alberta.ca/find-registry-agent.aspx" target="_blank" rel="noopener">
+                <i class="fa-solid fa-magnifying-glass-location"></i> Calgary NE & SE Registry Locator
+              </a>
+              <span class="desc">Find authorized registry agents for knowledge tests & road test bookings.</span>
+            </li>
+            <li>
+              <a href="https://www.alberta.ca/find-registry-agent.aspx" target="_blank" rel="noopener">
+                <i class="fa-solid fa-map-pin"></i> Chestermere & Strathmore Registries
+              </a>
+              <span class="desc">Local registry services for surrounding eastern communities.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="resource-box">
+          <h3><i class="fa-solid fa-shield-cat"></i> Safety & Demerits</h3>
+          <ul class="link-list">
+            <li>
+              <a href="https://www.alberta.ca/demerit-driving-system.aspx" target="_blank" rel="noopener">
+                <i class="fa-solid fa-scale-balanced"></i> Alberta Demerit Point System
+              </a>
+              <span class="desc">Understand GDL rules, traffic violation penalties, and point recovery.</span>
+            </li>
+            <li>
+              <a href="#packages">
+                <i class="fa-solid fa-percent"></i> Insurance Discount Qualification
+              </a>
+              <span class="desc">Learn how driver education certification lowers your insurance rate.</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding" id="contact">
+    <div class="container">
+      <div class="contact-card">
+        
+        <div class="contact-info">
+          <div>
+            <h3>Get in Touch</h3>
+            <p>Have questions about scheduling, pricing, or Class 1 commercial training? Call or message us today!</p>
+            
+            <ul class="info-list">
+              <li class="info-item">
+                <i class="fa-solid fa-phone"></i>
                 <div>
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-quote">"Dave is an incredible instructor! I was extremely nervous before my first lesson, but his calm approach helped me build confidence quickly. Passed my Class 5 road test on the first try!"</p>
+                  <strong style="display:block; font-size:0.85rem; color:#94A3B8;">Call or Text</strong>
+                  (403) 555-0199
                 </div>
-                <div class="review-author">
-                    <div class="author-avatar">A</div>
-                    <div class="author-details">
-                        <h4>Amanpreet K.</h4>
-                        <span>Google Review — NE Calgary</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="review-card">
+              </li>
+              <li class="info-item">
+                <i class="fa-solid fa-envelope"></i>
                 <div>
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-quote">"The insurance reduction course was totally worth it. Dave explained parallel parking and highway merging in a way that made complete sense. Highly recommend Dave's Driving School!"</p>
+                  <strong style="display:block; font-size:0.85rem; color:#94A3B8;">Email Us</strong>
+                  info@davesdrivingschool.ca
                 </div>
-                <div class="review-author">
-                    <div class="author-avatar">M</div>
-                    <div class="author-details">
-                        <h4>Marcus T.</h4>
-                        <span>Google Review — Chestermere</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="review-card">
+              </li>
+              <li class="info-item">
+                <i class="fa-solid fa-location-dot"></i>
                 <div>
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-quote">"Very patient and professional! Being able to learn with clear explanations in my native language made a huge difference. Free home pickup was super convenient."</p>
+                  <strong style="display:block; font-size:0.85rem; color:#94A3B8;">Service Areas</strong>
+                  NE Calgary, SE Calgary, Chestermere, Langdon, Strathmore
                 </div>
-                <div class="review-author">
-                    <div class="author-avatar">R</div>
-                    <div class="author-details">
-                        <h4>Rahul S.</h4>
-                        <span>Google Review — SE Calgary</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+              </li>
+            </ul>
+          </div>
 
-    <!-- Section 4: Contact & Registration Form -->
-    <section id="contact" style="background-color: #ffffff;">
-        <div class="section-header">
-            <h2>Ready to Get Behind the Wheel?</h2>
-            <p>Contact us today to book your driving lessons, request custom rates, or ask any questions.</p>
+          <div style="font-size:0.85rem; color:#94A3B8;">
+            <i class="fa-solid fa-clock"></i> Flexible Schedule: Lessons available 7 days a week including evenings.
+          </div>
         </div>
 
-        <div class="contact-wrapper">
-            <div class="contact-info">
-                <h3>Dave's Driving School</h3>
-                <p>Family-owned, professional, and dedicated to teaching safe driving habits across Calgary and surrounding communities.</p>
+        <div class="contact-form-wrap">
+          <h3 style="margin-bottom: 0.5rem;">Book / Enquire Online</h3>
+          <p style="margin-bottom: 1.5rem; font-size: 0.9rem;">Fill out the form below and Dave will get back to you within 24 hours.</p>
 
-                <div class="contact-detail-item">
-                    <strong>📍 Location / Address:</strong>
-                    <span>12710 Barlow Trail NE, Calgary Trail North, AB, Canada, Alberta T3J 4S1</span>
-                </div>
-
-                <div class="contact-detail-item">
-                    <strong>📞 Phone (Calls):</strong>
-                    <span><a href="tel:4034045338">(403) 404-5338</a></span>
-                </div>
-
-                <div class="contact-detail-item">
-                    <strong>💬 Text Message Only (Instant Response):</strong>
-                    <span><a href="sms:14037021797?body=Hi%20Dave,%20I'm%20interested%20in%20Class%205%20driving%20lessons!" style="color: #25D366; font-weight: 700;">(403) 702-1797 — Tap to Text</a></span>
-                </div>
-
-                <div class="contact-detail-item">
-                    <strong>✉️ Email:</strong>
-                    <span><a href="mailto:drivingwithdds@gmail.com">drivingwithdds@gmail.com</a></span>
-                </div>
-
-                <div class="contact-detail-item">
-                    <strong>🗺️ Service Areas:</strong>
-                    <span>NE & SE Calgary, Chestermere, Langdon, Strathmore</span>
-                </div>
-
-                <div class="contact-detail-item">
-                    <strong>🗣️ Languages:</strong>
-                    <span>English, Hindi, Punjabi, Urdu</span>
-                </div>
+          <form id="contact-form" onsubmit="event.preventDefault(); alert('Thank you! Your message has been sent to Dave\'s Driving School.');">
+            <div class="form-group">
+              <label for="contact-name">Your Full Name</label>
+              <input type="text" id="contact-name" class="form-control" placeholder="John Doe" required>
             </div>
-
-            <form class="booking-form" onsubmit="event.preventDefault(); alert('Thank you! Dave\'s Driving School will contact you shortly.');">
-                <div class="form-group">
-                    <input type="text" placeholder="Your Full Name" required>
-                </div>
-                <div class="form-group">
-                    <input type="tel" placeholder="Phone Number" required>
-                </div>
-                <div class="form-group">
-                    <select required>
-                        <option value="" disabled selected>Select Preferred Package</option>
-                        <option value="insurance">Insurance Reduction Course (10h In-Car + 15h Online)</option>
-                        <option value="winter">Winter Driving & Skid Prep (2-10 Hours)</option>
-                        <option value="hourly">Hourly Brush-Up / Road Test Prep</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <select required>
-                        <option value="" disabled selected>Select Your City / Zone</option>
-                        <option value="calgary-ne">NE Calgary</option>
-                        <option value="calgary-se">SE Calgary</option>
-                        <option value="chestermere">Chestermere</option>
-                        <option value="langdon">Langdon</option>
-                        <option value="strathmore">Strathmore</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <textarea rows="4" placeholder="Any specific questions or preferred start dates?"></textarea>
-                </div>
-                <button type="submit" class="btn-submit">Submit Inquiry</button>
-            </form>
+            <div class="form-group">
+              <label for="contact-email">Email Address</label>
+              <input type="email" id="contact-email" class="form-control" placeholder="john@example.com" required>
+            </div>
+            <div class="form-group">
+              <label for="contact-phone">Phone Number</label>
+              <input type="tel" id="contact-phone" class="form-control" placeholder="(403) 555-0123" required>
+            </div>
+            <div class="form-group">
+              <label for="contact-message">How Can We Help You?</label>
+              <textarea id="contact-message" class="form-control" rows="4" placeholder="Tell us which course or start date you are interested in..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-red" style="width: 100%;">Send Message</button>
+          </form>
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-brand">
-                <h4>DAVE'S DRIVING SCHOOL</h4>
-                <p>Building Safe Drivers for Life. Professional, patient, and family-oriented driving instruction across Alberta.</p>
-            </div>
-            <div class="footer-links">
-                <h5>Quick Links</h5>
-                <ul>
-                    <li><a href="#why-us">Why Choose Us</a></li>
-                    <li><a href="#packages">Packages & Rates</a></li>
-                    <li><a href="#reviews">Student Reviews</a></li>
-                    <li><a href="#contact">Book Lessons</a></li>
-                </ul>
-            </div>
-            <div class="footer-links">
-                <h5>Service Areas</h5>
-                <ul>
-                    <li><a href="#contact">NE & SE Calgary</a></li>
-                    <li><a href="#contact">Chestermere</a></li>
-                    <li><a href="#contact">Langdon</a></li>
-                    <li><a href="#contact">Strathmore</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Dave's Driving School. All rights reserved. | Building Safe Drivers for Life</p>
-        </div>
-    </footer>
+      </div>
+    </div>
+  </section>
 
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        
+        <div class="footer-brand">
+          <a href="#" class="brand-logo" style="text-decoration:none;">
+            <div class="logo-badge" style="width:36px; height:36px; font-size:1rem;">
+              <i class="fa-solid fa-car-side"></i>
+            </div>
+            <span class="brand-name">DAVE'S DRIVING SCHOOL</span>
+          </a>
+          <p>Providing patient, professional driver education for Class 5 and Class 1 commercial licensing in Calgary, Chestermere, Langdon, and Strathmore.</p>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#why-us">Why Choose Us</a></li>
+            <li><a href="#packages">Driver Packages</a></li>
+            <li><a href="#resources">Alberta Student Hub</a></li>
+            <li><a href="#contact">Contact & Booking</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">License Classes</h4>
+          <ul class="footer-links">
+            <li><a href="#packages">Class 5 Insurance Reduction</a></li>
+            <li><a href="#packages">Class 1 Commercial Training</a></li>
+            <li><a href="#packages">Winter Driving Prep</a></li>
+            <li><a href="#packages">Road Test Vehicle Rental</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        &copy; 2026 Dave's Driving School. All rights reserved. | Building Safe Drivers for Life.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileBtn = document.getElementById('mobile-menu-btn');
+      const navMenu = document.getElementById('nav-menu');
+    
+      if (mobileBtn && navMenu) {
+        mobileBtn.addEventListener('click', function() {
+          navMenu.classList.toggle('active');
+        });
+
+        navMenu.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+          });
+        });
+      }
+    });
+  </script>
 </body>
 </html>
