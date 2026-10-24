@@ -50,7 +50,6 @@
       overflow-x: hidden;
     }
 
-    /* TYPOGRAPHY UTILITIES */
     h1, h2, h3, h4, h5, h6 {
       font-family: 'Montserrat', sans-serif;
       font-weight: 800;
@@ -115,7 +114,6 @@
       border: 1px solid rgba(14, 59, 104, 0.25);
     }
 
-    /* BUTTONS */
     .btn {
       display: inline-flex;
       align-items: center;
@@ -687,6 +685,15 @@
       color: #F87171;
     }
 
+    .info-item a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .info-item a:hover {
+      text-decoration: underline;
+    }
+
     .contact-form-wrap {
       padding: 3rem;
     }
@@ -749,7 +756,6 @@
       font-size: 0.825rem;
     }
 
-    /* RESPONSIVE DESIGN */
     @media (max-width: 992px) {
       .hero-grid {
         grid-template-columns: 1fr;
@@ -852,26 +858,32 @@
         <div class="hero-card">
           <h3>Quick Registration</h3>
           <p>Get in touch with an instructor to reserve your preferred schedule slot.</p>
-          <form id="hero-intake-form" onsubmit="event.preventDefault(); alert('Thank you for your request! Dave will contact you shortly.');">
+          
+          <!-- Hero Form connected to Web3Forms -->
+          <form action="https://api.web3forms.com/submit" method="POST" id="hero-intake-form">
+            <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+            <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
             <div class="form-group">
               <label for="hero-name">Full Name</label>
-              <input type="text" id="hero-name" class="form-control" placeholder="e.g. Sarah Jenkins" required>
+              <input type="text" id="hero-name" name="name" class="form-control" placeholder="e.g. Sarah Jenkins" required>
             </div>
             <div class="form-group">
-              <label for="hero-phone">Phone Number</label>
-              <input type="tel" id="hero-phone" class="form-control" placeholder="(403) 404-5338" required>
+              <label for="hero-phone">Phone Number / Email</label>
+              <input type="text" id="hero-phone" name="phone_or_email" class="form-control" placeholder="(403) 404-5338" required>
             </div>
             <div class="form-group">
               <label for="hero-course">License Class / Program</label>
-              <select id="hero-course" class="form-control" required>
+              <select id="hero-course" name="program" class="form-control" required>
                 <option value="">Select a Program</option>
-                <option value="class5">Class 5 Insurance Reduction Course</option>
-                <option value="class1">Class 1 Commercial Training</option>
-                <option value="winter">Winter Driving Prep</option>
-                <option value="brushup">Road Test Brush-Up & Rental</option>
+                <option value="Class 5 Insurance Reduction Course">Class 5 Insurance Reduction Course</option>
+                <option value="Class 1 Commercial Training">Class 1 Commercial Training</option>
+                <option value="Winter Driving Prep">Winter Driving Prep</option>
+                <option value="Road Test Brush-Up & Rental">Road Test Brush-Up & Rental</option>
               </select>
             </div>
             <button type="submit" class="btn btn-blue" style="width: 100%; margin-top: 0.5rem;">Request Callback</button>
+            <div id="hero-result" style="margin-top: 10px; text-align: center; font-size: 0.85rem;"></div>
           </form>
         </div>
 
@@ -879,6 +891,7 @@
     </div>
   </section>
 
+  <!-- WHY US SECTION -->
   <section class="section-padding" id="why-us">
     <div class="container">
       <div class="section-header">
@@ -888,11 +901,8 @@
       </div>
 
       <div class="why-us-grid">
-        
         <div class="why-card">
-          <div class="card-icon-wrap">
-            <i class="fa-solid fa-heart-pulse"></i>
-          </div>
+          <div class="card-icon-wrap"><i class="fa-solid fa-heart-pulse"></i></div>
           <h3>"Don't Be Nervous!"</h3>
           <p>Driving anxiety is completely natural. Our patient instruction method helps clear away stress through step-by-step guidance in safe, dual-controlled vehicles.</p>
           <div class="pill-container">
@@ -902,9 +912,7 @@
         </div>
 
         <div class="why-card">
-          <div class="card-icon-wrap">
-            <i class="fa-solid fa-language"></i>
-          </div>
+          <div class="card-icon-wrap"><i class="fa-solid fa-language"></i></div>
           <h3>Multilingual Instruction</h3>
           <p>Clear communication is crucial to learning safety rules. We provide fluent instruction in English, Hindi, Punjabi, and Urdu for complete confidence.</p>
           <div class="pill-container">
@@ -916,9 +924,7 @@
         </div>
 
         <div class="why-card">
-          <div class="card-icon-wrap">
-            <i class="fa-solid fa-house-chimney-user"></i>
-          </div>
+          <div class="card-icon-wrap"><i class="fa-solid fa-house-chimney-user"></i></div>
           <h3>Door-to-Door Pickup</h3>
           <p>Convenient home, work, or school pickup across North East & South East Calgary, Chestermere, Langdon, and Strathmore.</p>
           <div class="pill-container">
@@ -930,9 +936,7 @@
         </div>
 
         <div class="why-card">
-          <div class="card-icon-wrap">
-            <i class="fa-solid fa-shield-halved"></i>
-          </div>
+          <div class="card-icon-wrap"><i class="fa-solid fa-shield-halved"></i></div>
           <h3>High Test Pass Rate</h3>
           <p>Our focus on real-world practical skills, defensive maneuvering, and mock road test evaluation helps students pass on their first try.</p>
           <div class="pill-container">
@@ -940,11 +944,11 @@
             <span class="pill-item">Defensive Driving</span>
           </div>
         </div>
-
       </div>
     </div>
   </section>
 
+  <!-- PACKAGES SECTION -->
   <section class="section-padding packages-section" id="packages">
     <div class="container">
       <div class="section-header">
@@ -954,8 +958,6 @@
       </div>
 
       <div class="packages-grid">
-
-        <!-- Package 1: Class 5 Insurance Reduction -->
         <div class="pkg-card featured">
           <span class="pkg-badge">Most Popular</span>
           <div class="pkg-subtitle">Class 5 License</div>
@@ -968,30 +970,24 @@
             <li>Free door-to-door pickup & drop-off included</li>
             <li>Available in English, Hindi, Punjabi, and Urdu</li>
           </ul>
-          <div class="pkg-action">
-            <a href="#contact" class="btn btn-red" style="width: 100%;">Book Insurance Program</a>
-          </div>
+          <div class="pkg-action"><a href="#contact" class="btn btn-red" style="width: 100%;">Book Insurance Program</a></div>
         </div>
 
-        <!-- Package 2: Class 1 Commercial Training (Alberta Transportation Compliant Wording) -->
         <div class="pkg-card commercial">
           <span class="pkg-badge blue">Commercial Licensing</span>
           <div class="pkg-subtitle">Class 1 License</div>
           <h3 class="pkg-title">Class 1 Commercial Driver Training</h3>
-          <p class="pkg-desc">Approved commercial driver training preparing candidates to meet Alberta Transportation & Economic Corridors standards for commercial licensing and career readiness.</p>
+          <p class="pkg-desc">Approved commercial driver training preparing candidates to meet Alberta Transportation & Economic Corridors standards.</p>
           <ul class="pkg-feature-list">
             <li>Comprehensive commercial vehicle operation & safety training</li>
             <li>Professional in-cab practical driving & highway navigation</li>
             <li>In-yard vehicle inspection protocols & coupling procedures</li>
-            <li>Air Brake (Q-Endorsement) theory & practical component preparation</li>
+            <li>Air Brake (Q-Endorsement) theory & practical preparation</li>
             <li>Designed for entry-level commercial trucking career readiness</li>
           </ul>
-          <div class="pkg-action">
-            <a href="#contact" class="btn btn-blue" style="width: 100%;">Enquire Commercial Class 1</a>
-          </div>
+          <div class="pkg-action"><a href="#contact" class="btn btn-blue" style="width: 100%;">Enquire Commercial Class 1</a></div>
         </div>
 
-        <!-- Package 3: Winter Driving Prep -->
         <div class="pkg-card">
           <div class="pkg-subtitle">Seasonal Safety</div>
           <h3 class="pkg-title">Winter Driving Prep</h3>
@@ -1003,12 +999,9 @@
             <li>Winter vehicle preparation & emergency kit review</li>
             <li>Ideal for new drivers and Alberta newcomers</li>
           </ul>
-          <div class="pkg-action">
-            <a href="#contact" class="btn btn-blue" style="width: 100%;">Book Winter Prep</a>
-          </div>
+          <div class="pkg-action"><a href="#contact" class="btn btn-blue" style="width: 100%;">Book Winter Prep</a></div>
         </div>
 
-        <!-- Package 4: Road Test Brush-Up -->
         <div class="pkg-card">
           <div class="pkg-subtitle">Exam Prep</div>
           <h3 class="pkg-title">Road Test Brush-Up & Rental</h3>
@@ -1020,15 +1013,13 @@
             <li>Pickup & transport to your local registry office</li>
             <li>Calm, encouraging support right before your test</li>
           </ul>
-          <div class="pkg-action">
-            <a href="#contact" class="btn btn-blue" style="width: 100%;">Book Test Prep</a>
-          </div>
+          <div class="pkg-action"><a href="#contact" class="btn btn-blue" style="width: 100%;">Book Test Prep</a></div>
         </div>
-
       </div>
     </div>
   </section>
 
+  <!-- RESOURCES SECTION -->
   <section class="section-padding resources-section" id="resources">
     <div class="container">
       <div class="section-header">
@@ -1038,7 +1029,6 @@
       </div>
 
       <div class="resources-grid">
-        
         <div class="resource-box">
           <h3><i class="fa-solid fa-book-bookmark"></i> Official Alberta Handbooks</h3>
           <ul class="link-list">
@@ -1092,11 +1082,11 @@
             </li>
           </ul>
         </div>
-
       </div>
     </div>
   </section>
 
+  <!-- CONTACT SECTION -->
   <section class="section-padding" id="contact">
     <div class="container">
       <div class="contact-card">
@@ -1104,60 +1094,57 @@
         <div class="contact-info">
           <div>
             <h3>Get in Touch</h3>
-            <p>Have questions about scheduling, pricing, or Class 1 commercial training? Call or message us today!</p>
+            <p>Have questions about course scheduling, packages, or license requirements? Reach out directly and we'll get back to you promptly.</p>
             
             <ul class="info-list">
               <li class="info-item">
                 <i class="fa-solid fa-phone"></i>
-                <div>
-                  <strong style="display:block; font-size:0.85rem; color:#94A3B8;">Call or Text</strong>
-                  (403) 404-5338 and 403-702-0201 
-                </div>
+                <span>
+                  <a href="tel:4034045338">(403) 404-5338</a> &nbsp;|&nbsp; 
+                  <a href="tel:4037020201">(403) 702-0201</a>
+                </span>
               </li>
               <li class="info-item">
                 <i class="fa-solid fa-envelope"></i>
-                <div>
-                  <strong style="display:block; font-size:0.85rem; color:#94A3B8;">Email Us</strong>
-                  drivingwithdds@gmail.com 
-                </div>
+                <span><a href="mailto:drivingwithdds@gmail.com">drivingwithdds@gmail.com</a></span>
               </li>
               <li class="info-item">
                 <i class="fa-solid fa-location-dot"></i>
-                <div>
-                  <strong style="display:block; font-size:0.85rem; color:#94A3B8;">Service Areas</strong>
-                  NE Calgary, SE Calgary, Chestermere, Langdon, Strathmore
-                </div>
+                <span>Calgary (NE / SE), Chestermere, Langdon & Strathmore</span>
               </li>
             </ul>
           </div>
-
-          <div style="font-size:0.85rem; color:#94A3B8;">
-            <i class="fa-solid fa-clock"></i> Flexible Schedule: Lessons available 7 days a week including evenings.
+          <div style="font-size: 0.85rem; color: #CBD5E1;">
+            <p style="color: #CBD5E1; margin: 0;">Certified Driving Instructors • Dual-Control Vehicles • Multilingual Support</p>
           </div>
         </div>
 
         <div class="contact-form-wrap">
-          <h3 style="margin-bottom: 0.5rem;">Book / Enquire Online</h3>
-          <p style="margin-bottom: 1.5rem; font-size: 0.9rem;">Fill out the form below and Dave will get back to you within 24 hours.</p>
+          <h3 style="margin-bottom: 1.5rem;">Send a Message</h3>
+          
+          <!-- Main Contact Form connected to Web3Forms -->
+          <form action="https://api.web3forms.com/submit" method="POST" id="main-contact-form">
+            <input type="hidden" name="access_key" value="840aea23-6d0c-4493-9690-7dd700607feb">
+            <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
-          <form id="contact-form" onsubmit="event.preventDefault(); alert('Thank you! Your message has been sent to Dave\'s Driving School.');">
             <div class="form-group">
-              <label for="contact-name">Your Full Name</label>
-              <input type="text" id="contact-name" class="form-control" placeholder="John Doe" required>
+              <label for="contact-name">Your Name</label>
+              <input type="text" id="contact-name" name="name" class="form-control" placeholder="John Doe" required>
             </div>
             <div class="form-group">
               <label for="contact-email">Email Address</label>
-              <input type="email" id="contact-email" class="form-control" placeholder="john@example.com" required>
+              <input type="email" id="contact-email" name="email" class="form-control" placeholder="john@example.com" required>
             </div>
             <div class="form-group">
               <label for="contact-phone">Phone Number</label>
-              <input type="tel" id="contact-phone" class="form-control" placeholder="(403) 404-5338" required>
+              <input type="tel" id="contact-phone" name="phone" class="form-control" placeholder="(403) 404-5338" required>
             </div>
             <div class="form-group">
-              <label for="contact-message">How Can We Help You?</label>
-              <textarea id="contact-message" class="form-control" rows="4" placeholder="Tell us which course or start date you are interested in..." required></textarea>
+              <label for="contact-message">Message / Preferred Schedule</label>
+              <textarea id="contact-message" name="message" class="form-control" rows="4" placeholder="Let us know what course you're interested in..." required></textarea>
             </div>
-            <button type="submit" class="btn btn-red" style="width: 100%;">Send Message</button>
+            <button type="submit" class="btn btn-red" style="width: 100%;">Send Inquiry</button>
+            <div id="contact-result" style="margin-top: 15px; text-align: center; font-size: 0.9rem;"></div>
           </form>
         </div>
 
@@ -1165,66 +1152,94 @@
     </div>
   </section>
 
+  <!-- FOOTER -->
   <footer>
     <div class="container">
       <div class="footer-grid">
-        
         <div class="footer-brand">
-          <a href="#" class="brand-logo" style="text-decoration:none;">
-            <div class="logo-badge" style="width:36px; height:36px; font-size:1rem;">
-              <i class="fa-solid fa-car-side"></i>
-            </div>
-            <span class="brand-name">DAVE'S DRIVING SCHOOL</span>
-          </a>
-          <p>Providing patient, professional driver education for Class 5 and Class 1 commercial licensing in Calgary, Chestermere, Langdon, and Strathmore.</p>
+          <span class="brand-name" style="font-size: 1.1rem;">DAVE'S DRIVING SCHOOL</span>
+          <p>Providing safe, professional, and patient driver education throughout Calgary and surrounding eastern communities.</p>
         </div>
-
         <div>
-          <h4 class="footer-title">Quick Links</h4>
+          <div class="footer-title">Quick Links</div>
           <ul class="footer-links">
             <li><a href="#home">Home</a></li>
-            <li><a href="#why-us">Why Choose Us</a></li>
-            <li><a href="#packages">Driver Packages</a></li>
-            <li><a href="#resources">Alberta Student Hub</a></li>
-            <li><a href="#contact">Contact & Booking</a></li>
+            <li><a href="#why-us">Why Us</a></li>
+            <li><a href="#packages">Programs</a></li>
+            <li><a href="#resources">Student Resources</a></li>
           </ul>
         </div>
-
         <div>
-          <h4 class="footer-title">License Classes</h4>
+          <div class="footer-title">Programs</div>
           <ul class="footer-links">
             <li><a href="#packages">Class 5 Insurance Reduction</a></li>
             <li><a href="#packages">Class 1 Commercial Training</a></li>
             <li><a href="#packages">Winter Driving Prep</a></li>
-            <li><a href="#packages">Road Test Vehicle Rental</a></li>
+            <li><a href="#packages">Road Test Brush-Up</a></li>
           </ul>
         </div>
-
       </div>
-
       <div class="footer-bottom">
-        &copy; 2026 Dave's Driving School. All rights reserved. | Building Safe Drivers for Life.
+        &copy; 2026 Dave's Driving School. All rights reserved.
       </div>
     </div>
   </footer>
 
+  <!-- JavaScript for Mobile Menu & AJAX Form Submissions -->
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const mobileBtn = document.getElementById('mobile-menu-btn');
-      const navMenu = document.getElementById('nav-menu');
-    
-      if (mobileBtn && navMenu) {
-        mobileBtn.addEventListener('click', function() {
-          navMenu.classList.toggle('active');
-        });
+    // Mobile Navigation Toggle
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const navMenu = document.getElementById('nav-menu');
 
-        navMenu.querySelectorAll('a').forEach(link => {
-          link.addEventListener('click', () => {
-            navMenu.classList.remove('active');
-          });
-        });
-      }
+    mobileBtn.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
     });
+
+    // Handle AJAX Submission for Both Forms
+    function setupForm(formId, resultId) {
+      const form = document.getElementById(formId);
+      const result = document.getElementById(resultId);
+
+      if(!form) return;
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const formData = new FormData(form);
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
+        
+        result.textContent = "Sending inquiry...";
+        result.style.color = "#0E3B68";
+
+        fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: json
+        })
+        .then(async (response) => {
+            let jsonResponse = await response.json();
+            if (response.status == 200) {
+                result.textContent = "Success! Dave will contact you shortly.";
+                result.style.color = "green";
+                form.reset();
+            } else {
+                result.textContent = jsonResponse.message || "Something went wrong.";
+                result.style.color = "red";
+            }
+        })
+        .catch(error => {
+            console.log(error);
+            result.textContent = "Something went wrong! Please try calling us directly.";
+            result.style.color = "red";
+        });
+      });
+    }
+
+    setupForm('hero-intake-form', 'hero-result');
+    setupForm('main-contact-form', 'contact-result');
   </script>
 </body>
 </html>
